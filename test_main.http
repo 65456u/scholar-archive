@@ -1,0 +1,100 @@
+# Test your FastAPI endpoints
+
+GET http://127.0.0.1:8000/
+Accept: application/json
+
+###
+
+GET http://127.0.0.1:8000/hello/User
+Accept: application/json
+
+###
+
+### User Register Endpoint ###
+POST http://localhost:8000/user/register
+Content-Type: application/json
+
+{
+  "name": "fuck",
+  "phone": "123456",
+  "password": "abc"
+}
+
+###
+POST http://127.0.0.1:8000/user/login
+Content-Type: application/json
+
+{
+  "name": "fuck",
+  "password": "abc"
+}
+
+###
+POST http://127.0.0.1:8000/checkin
+Content-Type: application/json
+
+{
+  "user_id": 2
+}
+
+###
+POST http://127.0.0.1:8000/ac/on
+Content-Type: application/json
+
+{
+  "room_id": 2
+}
+
+###
+POST http://127.0.0.1:8000/ac/settings
+Content-Type: application/json
+
+{
+  "room_id": 2,
+  "settings": {
+    "temperature": 80,
+    "fan_speed": "high",
+    "mode": "cool"
+  }
+}
+
+###
+POST http://127.0.0.1:8000/ac/off
+Content-Type: application/json
+
+{
+  "room_id": 2
+}
+
+###
+GET http://127.0.0.1:8000/ac/cost
+Content-Type: application/json
+
+{
+  "user_id": 2
+}
+
+###
+GET http://127.0.0.1:8000/ac/status
+Content-Type: application/json
+
+{
+  "room_id": 2
+}
+
+###
+GET http://127.0.0.1:8000/ac/reports
+Content-Type: application/json
+
+{
+  "room_id": 2
+}
+
+
+###
+POST http://127.0.0.1:8000/user/get_id_by_name
+Content-Type: application/json
+
+{
+  "name": "a"
+}
