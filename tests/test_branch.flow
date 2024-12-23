@@ -1,0 +1,22 @@
+flow origin {
+    listen for message
+    if message equals "start" {
+        engage start
+    } else if message equals "final" {
+        engage final
+    } else {
+        engage default
+    }
+}
+
+flow start {
+    speak "start"
+}
+
+flow final {
+    speak "final"
+}
+
+flow default {
+    speak "default"
+}

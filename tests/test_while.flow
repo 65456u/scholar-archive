@@ -1,0 +1,7 @@
+flow origin {
+    assign 0 to count
+    while count less than 10 {
+        assign count + 1 to count
+        speak count
+    }
+}
