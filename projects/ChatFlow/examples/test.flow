@@ -1,0 +1,39 @@
+flow origin {
+    listen for question for 5s before timeout
+    if question match "fuck" {
+        goto manual
+    } elif question match "charge" {
+        goto charge
+    } else {
+        goto unexplicit_flow
+    }
+}
+
+flow timeout {
+    speak "time out"
+    end
+}
+
+flow manual {
+    handover customer_service
+    goto thank
+}
+
+flow thank {
+    speak "thank you"
+    end
+}
+
+flow charge {
+    speak "How much would you like to charge?"
+    listen for answer for 5s before timeout
+    if answer match "\d+" as amount {
+        speak "r u trying to charge {amount} yuan?"
+        listen for answer
+        if answer equals "y" {
+            handover charge_procedure
+        }
+    }
+    speak "charge cancelled"
+    goto origin
+}

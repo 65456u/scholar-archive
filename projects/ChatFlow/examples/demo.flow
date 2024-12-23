@@ -1,0 +1,13 @@
+flow origin {
+    speak "any question?"
+    listen for question
+    speak question
+    if question match "fuck" {
+        speak "don't fuck me"
+    }
+    end
+    speak "not able to exit?"
+}
+flow timeout {
+    speak "timeout occurred"
+}

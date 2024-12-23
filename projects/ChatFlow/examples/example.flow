@@ -1,0 +1,47 @@
+flow origin {
+    speak "Hello World"
+    listen for question for 5s
+    if timeout {
+        assign "charge" to question
+    } else {
+        assign "fuck" to question
+    }
+    speak question
+    assign 0 to count
+    while count less than 10 {
+        speak count
+        assign count + 1 to count
+    }
+    if timeout {
+        assign "fuck" to question
+    }
+    if question match "fuck" {
+        engage manual
+    } else if question match "charge" {
+        engage charge
+    }
+    engage thank
+}
+flow manual {
+    speak "calling human client, please be patient."
+    handover manual_service
+    speak "are you pleasant with our service?"
+    listen for comment for 5s
+    handover comment_collector
+    end
+}
+flow charge {
+    speak "what amount would you like to charge?"
+    listen for answer for 5s
+    if timeout{
+        engage charge_timeout
+    }
+}
+flow charge_timeout {
+    speak "timeout, charge cancelled"
+    engage origin
+}
+flow thank {
+    speak "thanks for your support"
+    end
+}

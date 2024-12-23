@@ -1,0 +1,20 @@
+flow origin {
+    speak "hello, world"
+    listen for question
+    if timeout {
+        assign "fuck" to question
+        speak "fuck" + question
+        engage timeout_handler
+    } else if "123" match "123" as var {
+        speak "you said " + question
+        speak var
+        assign 1+2*(1-2) to num
+        speak num
+    } else {
+        speak "passed"
+    }
+    handover display
+}
+flow timeout_handler {
+    speak "sorry, I didn't hear anything"
+}

@@ -1,0 +1,46 @@
+flow origin {
+    speak "Welcome to the recharge system"
+    listen for question for 10s
+    if timeout {
+        engage timeout_flow
+    }
+    if question matches "recharge" {
+        engage recharge_flow
+    } else if question matches "query" {
+        engage query_flow
+    } else {
+        engage unknown_flow
+    }
+}
+
+flow timeout_flow {
+    speak "timeout, please try again"
+    end
+}
+
+flow recharge_flow {
+    speak "please input the amount you want to recharge"
+    listen for question for 3s
+    if timeout {
+        engage timeout_flow
+    }
+    if question matches "\d+" as amount {
+        store amount
+        handover recharge
+        end
+    }
+    engage unknown_flow
+}
+
+flow unknown_flow {
+    speak "Sorry, I don't understand what you are saying"
+    end
+}
+
+flow query_flow {
+    speak "Querying your balance"
+    handover generate_random_number
+    fetch number
+    speak "You balance is " + number + " yuan"
+    end
+}

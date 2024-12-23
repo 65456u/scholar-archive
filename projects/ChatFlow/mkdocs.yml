@@ -1,0 +1,37 @@
+site_name: ChatFlow
+
+theme:
+  name: material
+
+plugins:
+  - search
+  - mike
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_submodules: false
+
+nav:
+  - ChatFlow: index.md
+  - Quick Start: quick-start.md
+  - Tutorial: tutorials.md
+  - Examples: examples.md
+  - Grammar:
+      - Grammar: grammar.md
+      - Structure: structure.md
+      - Lexical Analysis: lexical.md
+      - Statements: statement.md
+      - Definition: BNF.md
+  - Async Support: async.md
+  - API Reference:
+      - References: references.md
+      - Interpreter: interpreter.md
+      - Runtime: runtime.md
+      - Context: context.md
+      - Executors: executors.md
+      - Utils: utils.md
+      - Test: test.md
+
+  - License: LICENSE.md

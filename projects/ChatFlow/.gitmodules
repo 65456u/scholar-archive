@@ -1,0 +1,3 @@
+[submodule "ChatFlowDemo"]
+	path = ChatFlowDemo
+	url = https://github.com/65456u/ChatFlowDemo.git

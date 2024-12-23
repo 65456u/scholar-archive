@@ -1,0 +1,7 @@
+flow origin {
+    engage test
+}
+
+flow test {
+    speak "engaged"
+}
